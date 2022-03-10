@@ -1,0 +1,365 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;1,200&display=swap");
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  width: 100%;
+  height: auto;
+}
+/* whole document set up in a grid */
+.grid-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 2fr);
+  grid-auto-rows: 300px;
+  gap: 15px;
+  grid-template-areas:
+    "header header header"
+    "header header header"
+    "main main main"
+    "main main main"
+    "main main main"
+    "footer footer footer";
+}
+/* header-section styling starts here  */
+header {
+  grid-area: header;
+  width: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7)),
+    url(/Assets/tiny-fish.jpg);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+/* navigation bar inside header-section */
+.navbar {
+  height: 10vh;
+  width: 90%;
+  margin: auto;
+  padding: 0 10px;
+  text-align: center;
+}
+.navbar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.navbar ul li {
+  display: inline-block;
+  margin: 20px;
+}
+.navbar ul li a {
+  text-decoration: none;
+  color: #fff;
+}
+.navbar ul li a:hover {
+  border-radius: 50%;
+  box-shadow: 0 0 40px 5px #fff, inset 0 0 20px #0484b4;
+}
+/* line under the navigation elements */
+.navbar ul li::after {
+  content: "";
+  width: 0;
+  height: 2px;
+  background: #fff;
+  display: block;
+  margin: auto;
+  transition: 500ms ease;
+}
+.navbar ul li:hover::after {
+  width: 100%;
+}
+/* site name in the middle of header section */
+.site-name {
+  width: 90%;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.site-name h1 {
+  font-size: 3rem;
+}
+.site-name h3 {
+  margin: 10px 0 40px;
+  font-size: 1.8rem;
+}
+/* Buy Tickets Now button after site-name that links to the tickets.html page : here to itself */
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  padding: 12px 34px;
+  font-size: 1rem;
+  background: transparent;
+  position: relative;
+  cursor: pointer;
+}
+.btn:hover {
+  background: #0484b4;
+  transition: 0.6s;
+  box-shadow: 0 0 40px 5px #fff, inset 0 0 20px #0484b4;
+}
+/* moving light effect on the whole header section */
+.neonlight {
+  width: 100%;
+  background: transparent;
+  border-radius: 15px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 40px 5px #fff, inset 0 0 20px #0484b4, 0 0 160px 20px #08f;
+  animation: move 10s linear infinite;
+}
+@keyframes move {
+  0% {
+    top: 0%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    top: 90%;
+    opacity: 1;
+  }
+}
+/* header-section styling ends here */
+/* main-section styling starts here */
+main {
+  grid-area: main;
+}
+/* grid named "ticket-container" containing all tickets  */
+.ticket-container {
+  display: grid;
+  width: 85%;
+  margin: 200px auto;
+  grid-template-columns: repeat(4, 2fr);
+  grid-template-rows: 400px;
+  gap: 30px;
+  grid-template-areas: "kids teens adults family";
+}
+/* common design for all tickets */
+.ticket {
+  border: 5px solid #0484b4;
+  border-radius: 20px;
+  overflow: hidden;
+}
+/* each ticket marked as a unique grid area name */
+.kids-ticket {
+  grid-area: kids;
+}
+.teens-ticket {
+  grid-area: teens;
+}
+.adults-ticket {
+  grid-area: adults;
+}
+.family-pass {
+  grid-area: family;
+}
+/* image section inside each ticket */
+.image {
+  height: 300px;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+/* setting size of the actual image in img tag */
+img {
+  height: 100%;
+  width: 100%;
+}
+/* a division containing calendar, shopping cart icon and ticket pricing . hidden here*/
+.icons {
+  position: absolute;
+  bottom: -7rem;
+  left: 0;
+  right: 0;
+  display: flex;
+}
+/* the division mentioned above pops up on hovering the ticket */
+.ticket:hover .image .icons {
+  bottom: 0;
+}
+/* styling of the elements of "icons division" i.e calendar, shopping cart and price */
+.ticket:hover .image .icons a {
+  text-decoration: none;
+  height: 5rem;
+  line-height: 5rem;
+  font-size: 1.5rem;
+  width: 50%;
+  background: #0484b4;
+  color: #fff;
+}
+/* styling of shopping cart division */
+.icons .cart-btn {
+  font-size: 2rem;
+  text-decoration: none;
+  border-left: 0.1rem solid #fff7;
+  border-right: 0.1rem solid #fff7;
+  width: 100%;
+}
+.ticket:hover .image .icons a:hover {
+  background-color: #333;
+  transform: scale(1.1);
+}
+/* content of each ticket */
+.content {
+  text-align: center;
+}
+.content h3 {
+  font-size: 1.2rem;
+  color: #333;
+  padding: 0;
+}
+/* footer section styling (same as index page*/
+footer {
+  grid-area: footer;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7)),
+    url(/Assets/sharks.jpg);
+  background-position: center;
+  background-size: cover;
+  color: white;
+  display: grid;
+  grid-template-columns: repeat(3, 2fr);
+  gap: 20px;
+  grid-template-areas: "info about links";
+}
+.info {
+  grid-area: info;
+}
+.about {
+  grid-area: about;
+}
+.links {
+  grid-area: links;
+}
+footer div {
+  padding-top: 15px;
+  padding-left: 30px;
+}
+footer div h4 {
+  text-transform: capitalize;
+  position: relative;
+  width: max-content;
+  line-height: 1.5px;
+}
+footer div h4::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  background-color: #fff;
+  height: 3px;
+  width: 100%;
+}
+footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+footer ul li {
+  margin-bottom: 10px;
+}
+footer ul li a {
+  text-decoration: none;
+  text-transform: capitalize;
+  font-size: 0.8em;
+  color: white;
+  display: block;
+  transition: all 300ms ease;
+  opacity: 90%;
+  width: max-content;
+  border-radius: 50%;
+}
+footer ul li a:hover {
+  color: white;
+  padding-left: 2px;
+  opacity: 100%;
+  box-shadow: 0 0 40px 5px #fff, inset 0 0 20px #0484b4;
+}
+/* social media links styling */
+.social-links a i {
+  display: inline-block;
+  width: 40px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  color: #fff;
+  opacity: 90%;
+  transition: all 500ms ease;
+}
+.social-links a :hover {
+  opacity: 100%;
+  box-shadow: 0 0 40px 5px #fff, inset 0 0 20px #0484b4;
+}
+/* Media queries start here */
+ 
+/* small style changes for Tablets or medium sized devices  between 601px to 992px*/
+
+@media only screen and (min-width: 601px) and (max-width: 992px) {
+  .grid-container {
+    grid-template-columns: 2fr 2fr;
+    gap: 5px;
+    grid-template-areas:
+      "header header"
+      "header header"
+      "main main"
+      "main main"
+      "main main"
+      "footer footer";
+  }
+  main > .ticket-container {
+    margin: 40px auto;
+    grid-template-columns: 2fr 2fr;
+    grid-template-areas:
+      "kids teens"
+      "adults family";
+  }
+  .site-name h1 {
+    font-size: 2rem;
+  }
+  .site-name h3 {
+    font-size: 1.2rem;
+  }
+}
+/* small changes for mobile devices under 600px */
+@media only screen and (max-width: 600px) {
+  .grid-container {
+    grid-template-columns: 2fr;
+    grid-template-areas:
+      "header"
+      "header"
+      "main"
+      "main"
+      "main"
+      "main"
+      "main"
+      "main"
+      "footer";
+  }
+  main > .ticket-container {
+    width: 60%;
+    margin: auto;
+    grid-template-columns: 2fr;
+    grid-template-areas:
+      "kids"
+      "teens"
+      "adults"
+      "family";
+  }
+  .site-name h1 {
+    font-size: 1.6rem;
+  }
+  .site-name h3 {
+    font-size: 1rem;
+  }
+}

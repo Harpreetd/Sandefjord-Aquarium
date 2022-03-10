@@ -1,0 +1,340 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;1,200&display=swap");
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  width: 100%;
+  height: auto;
+}
+/* whole document set up in a grid */
+.grid-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 2fr);
+  grid-auto-rows: 300px;
+  gap: 15px;
+  grid-template-areas:
+    "header header header"
+    "header header header"
+    "main main main"
+    "main main main"
+    "footer footer footer";
+}
+/* header-section styling starts here  */
+.grid-container > header {
+  grid-area: header;
+  width: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7)),
+    url(/Assets/small-fishes.jpg);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+/* navigation bar inside header-section */
+.navbar {
+  height: 10vh;
+  width: 90%;
+  margin: auto;
+  padding: 0 10px;
+  text-align: center;
+}
+.navbar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.navbar ul li {
+  display: inline-block;
+  margin: 20px;
+}
+.navbar ul li a {
+  text-decoration: none;
+  color: #fff;
+}
+.navbar ul li a:hover {
+  border-radius: 50%;
+  box-shadow: 0 0 40px 5px #fff, inset 0 0 20px #0484b4;
+}
+/* line under the navigation elements */
+.navbar ul li::after {
+  content: "";
+  width: 0;
+  height: 2px;
+  background: #fff;
+  display: block;
+  margin: auto;
+  transition: 500ms ease;
+}
+.navbar ul li:hover::after {
+  width: 100%;
+}
+/* site name in the middle of header section */
+.site-name {
+  width: 90%;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.site-name h1 {
+  font-size: 3rem;
+}
+.site-name h3 {
+  margin: 10px 0 40px;
+  font-size: 1.8rem;
+}
+/* Buy Tickets Now button after site-name that links to the tickets.html page */
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  padding: 12px 34px;
+  font-size: 1rem;
+  background: transparent;
+  position: relative;
+  cursor: pointer;
+}
+.btn:hover {
+  background: #0484b4;
+  transition: 0.6s;
+  box-shadow: 0 0 40px 5px #fff, inset 0 0 20px #0484b4;
+}
+/* moving light effect on the whole header section */
+.neonlight {
+  width: 100%;
+  background: transparent;
+  border-radius: 15px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 40px 5px #fff, inset 0 0 20px #0484b4, 0 0 160px 20px #08f;
+  animation: move 10s linear infinite;
+}
+@keyframes move {
+  0% {
+    top: 0%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    top: 90%;
+    opacity: 1;
+  }
+}
+/* header-section styling ends here */
+/* main-section styling starts here */
+main {
+  grid-area: main;
+}
+/* division containing Contact form and an animated image  */
+.contact-container {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  gap: 15px;
+  align-items: center;
+}
+/* contact form styling starts here */
+form {
+  flex: 1 1 30rem;
+}
+/* division holding all the form fields together and aligned*/
+.form-container {
+  height: 600px;
+  margin: 50px;
+}
+form h1 {
+  color: #0484b4;
+  padding-top: 30px;
+}
+/* input fields of the form*/
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 97%;
+  border-radius: 10px;
+  padding: 8px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+input[type="text"],
+input[type="email"],
+textarea:focus {
+  border-color: #0484b4;
+}
+/* submit button on the form */
+button[type="submit"] {
+  width: 100%;
+  color: #0484b4;
+  border: 1px solid #0484b4;
+  border-radius: 15px;
+  padding: 10px;
+  margin-top: 20px;
+}
+button[type="submit"]:hover {
+  transition: 0.6s;
+  box-shadow: inset 0 0 20px #0484b4;
+}
+/* division containing animated fishes image */
+.fish-container {
+  position: relative;
+  flex: 1 1 30rem;
+  height: 600px;
+  overflow: hidden;
+}
+.fishes {
+  height: 70%;
+  width: 70%;
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  animation: fishes 10s linear infinite;
+}
+/* animation on fishes image */
+@keyframes fishes {
+  0% {
+    top: 0%;
+    left: 0%;
+  }
+  100% {
+    top: 20%;
+    left: 40%;
+  }
+}
+/* footer section styling (same as index page) */
+footer {
+  grid-area: footer;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7)),
+    url(/Assets/sharks.jpg);
+  background-position: center;
+  background-size: cover;
+  color: white;
+  display: grid;
+  grid-template-columns: repeat(3, 2fr);
+  gap: 20px;
+  grid-template-areas: "info about links";
+}
+.info {
+  grid-area: info;
+}
+.about {
+  grid-area: about;
+}
+.links {
+  grid-area: links;
+}
+footer div {
+  padding-top: 15px;
+  padding-left: 30px;
+}
+footer div h4 {
+  text-transform: capitalize;
+  position: relative;
+  width: max-content;
+  line-height: 1.5px;
+}
+footer div h4::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  background-color: #fff;
+  height: 3px;
+  width: 100%;
+}
+footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+footer ul li {
+  margin-bottom: 10px;
+}
+footer ul li a {
+  text-decoration: none;
+  text-transform: capitalize;
+  font-size: 0.8em;
+  color: white;
+  display: block;
+  transition: all 300ms ease;
+  opacity: 90%;
+  width: max-content;
+  border-radius: 50%;
+}
+footer ul li a:hover {
+  color: white;
+  padding-left: 2px;
+  opacity: 100%;
+  box-shadow: 0 0 40px 5px #fff, inset 0 0 20px #0484b4;
+}
+/* social media links styling */
+.social-links a i {
+  display: inline-block;
+  width: 40px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  color: #fff;
+  opacity: 90%;
+  transition: all 500ms ease;
+}
+.social-links a :hover {
+  opacity: 100%;
+  box-shadow: 0 0 40px 5px #fff, inset 0 0 20px #0484b4;
+}
+/* Media Queries start here */
+/* small style changes for Tablets or medium sized devices  between 601px to 992px*/
+
+@media only screen and (min-width: 601px) and (max-width: 992px) {
+  .grid-container {
+    grid-template-columns: 2fr 2fr;
+    grid-template-areas:
+      "header header"
+      "header header"
+      "main main"
+      "main main"
+      "main main"
+      "main main"
+      "footer footer";
+  }
+  main {
+    flex-wrap: wrap;
+  }
+  .site-name h1 {
+    font-size: 2rem;
+  }
+  .site-name h3 {
+    font-size: 1.2rem;
+  }
+}
+/* small changes for mobile devices under 600px */
+@media only screen and (max-width: 600px) {
+  .grid-container {
+    grid-template-columns: 2fr;
+    grid-template-areas:
+      "header"
+      "header"
+      "main"
+      "main"
+      "main"
+      "main"
+      "footer";
+  }
+  main {
+    flex-direction: column;
+  }
+  .site-name h1 {
+    font-size: 1.6rem;
+  }
+  .site-name h3 {
+    font-size: 1rem;
+  }
+}
